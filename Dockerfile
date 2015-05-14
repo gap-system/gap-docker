@@ -7,7 +7,7 @@ RUN sudo apt-get update -qq \
     && sudo rm -rf \
     && sudo su - gap \
     && sudo wget http://www.gap-system.org/pub/gap/gap4pkgs/packages-v4.7.7.tar.gz \
-    && sudo tar xvzf packages-v4.7.7.tar.gz \
+    && sudo tar xzf packages-v4.7.7.tar.gz \
     && sudo rm packages-v4.7.7.tar.gz \
     && sudo wget http://www.gap-system.org/Download/InstPackages.sh \
     && sudo chmod u+x InstPackages.sh \
