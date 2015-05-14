@@ -9,7 +9,7 @@ RUN sudo apt-get update -qq \
     && sudo wget -q http://www.gap-system.org/pub/gap/gap4pkgs/packages-v4.7.7.tar.gz \
     && sudo tar xzf packages-v4.7.7.tar.gz \
     && sudo rm packages-v4.7.7.tar.gz \
-    && sudo wget http://www.gap-system.org/Download/InstPackages.sh \
+    && sudo wget https://raw.githubusercontent.com/gap-system/gap-docker/master/InstPackages.sh \
     && sudo chmod u+x InstPackages.sh \
     && sudo ./InstPackages.sh
 
