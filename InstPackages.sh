@@ -81,7 +81,7 @@ make
 cd ..
 
 cd float-*
-./configure
+./configure --without-cxsc
 make
 cd ..
 

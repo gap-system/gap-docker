@@ -3,6 +3,7 @@ FROM gapsystem/gap-container
 MAINTAINER The GAP Group <support@gap-system.org>
 
 RUN sudo apt-get update -qq \
+    && sudo apt-get -qq install -y libmpfr-dev libmpfi-dev libmpc-dev libfplll-dev\
     && cd /home/gap/inst/gap4r7/pkg \
     && sudo rm -rf \
     && sudo su - gap \
