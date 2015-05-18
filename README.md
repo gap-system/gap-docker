@@ -5,7 +5,7 @@ We have a prebuilt Docker image for GAP and packages at https://registry.hub.doc
 If you install Docker, you may run GAP from this container interactively as follows:
 
 ```
-$ sudo docker run --rm -i -t gapsystem/gap-docker
+$ docker run --rm -i -t gapsystem/gap-docker
 gap@e7a0b6e05771:~$ gap
  *********   GAP, Version 4.7.7 of 13-Feb-2015 (free software, GPL)
  *  GAP  *   http://www.gap-system.org
@@ -22,6 +22,8 @@ gap@e7a0b6e05771:~$ gap
  Try '?help' for help. See also  '?copyright' and  '?authors'
 gap> 
 ```
+
+Note that you may have to run `docker` with `sudo`, particularly if you are on Ubuntu.
 
 At the moment, most of the packages are in the working order. The work
 in progress is to configure several remaining packages with non-standard
