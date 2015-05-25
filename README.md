@@ -23,10 +23,13 @@ gap@e7a0b6e05771:~$ gap
 gap> 
 ```
 
+Alternatively, you may just type 
+```
+docker run --rm -i -t gapsystem/gap-docker gap
+```
+to start GAP immediately. GAP command line options may be appended after `gap`. You may put this command in a shell script and make it a default or optional way to start GAP on your system.
+
 Note that you may have to run `docker` with `sudo`, particularly if you are on Ubuntu.
 
-At the moment, most of the packages are in the working order. The work
-in progress is to configure several remaining packages with non-standard
-installation and dependencies on external components.
-
+At the moment, most of the packages are in the working order. The work in progress is to configure several remaining packages with non-standard installation and dependencies on external components.
  
