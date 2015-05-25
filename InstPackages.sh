@@ -145,37 +145,8 @@ cd orb-*
 make
 cd ..
 
-#  see the pargap documentation how to use this 
-#  (in particular, user needs procgroup file)
-#  [more complicated to include EDIM kernel module ...]
-cd pargap
-./configure ../..
-make 
-cp bin/pargap.sh ../../bin/
-cd ..
-rm -f ALLPKG
-
 cd PolymakeInterface
 ./configure ../..
 make
 cd ..
 
-# For XGap the following shared libraries of the X window system must be 
-# installed on your machine together with the development files (header 
-# files and so on):
-# 
-#   libXaw.so, libXmu.so, libXt.so, libXext.so, libX11.so, libSM.so, libICE.so
-# 
-# In addition you need on XFree Version >= 4:
-# 
-#   libXpm.so
-#
-# If you  miss one of  these under Linux you  can usually just  install some
-# more packages of your favorite distribution. The development files usually
-# come in some package with "dev" in its name.
-cd xgap
-./configure
-make
-rm -f ../../bin/xgap.sh
-cp bin/xgap.sh ../../bin/
-cd ..
