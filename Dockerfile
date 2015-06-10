@@ -2,8 +2,7 @@ FROM gapsystem/gap-docker-base
 
 MAINTAINER The GAP Group <support@gap-system.org>
 
-RUN sudo apt-get update -qq \
-    && cd /home/gap/inst/gap4r7/pkg \
+RUN    cd /home/gap/inst/gap4r7/pkg \
     && rm -rf \
     && wget -q http://www.gap-system.org/pub/gap/gap4pkgs/packages-v4.7.7.tar.gz \
     && tar xzf packages-v4.7.7.tar.gz \
