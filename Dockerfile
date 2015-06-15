@@ -1,12 +1,12 @@
-FROM gapsystem/gap-docker-base:gap4r7p7
+FROM gapsystem/gap-docker-base
 
 MAINTAINER The GAP Group <support@gap-system.org>
 
 RUN    cd /home/gap/inst/gap4r7/pkg \
     && rm -rf \
-    && wget -q http://www.gap-system.org/pub/gap/gap4pkgs/packages-v4.7.7.tar.gz \
-    && tar xzf packages-v4.7.7.tar.gz \
-    && rm packages-v4.7.7.tar.gz \
+    && wget -q http://www.gap-system.org/pub/gap/gap4pkgs/packages-v4.7.8.tar.gz \
+    && tar xzf packages-v4.7.8.tar.gz \
+    && rm packages-v4.7.8.tar.gz \
     && wget https://raw.githubusercontent.com/gap-system/gap-docker/master/InstPackages.sh \
     && chmod u+x InstPackages.sh \
     && ./InstPackages.sh
