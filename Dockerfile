@@ -1,4 +1,4 @@
-FROM gapsystem/gap-docker-base
+FROM gapsystem/gap-docker-base:gap4r7p7
 
 MAINTAINER The GAP Group <support@gap-system.org>
 
