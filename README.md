@@ -45,11 +45,23 @@ docker run -v $PWD/examples:/data -t -i gapsystem/gap-docker gap /data/useful.g
 
 Note that the path to `useful.g` is the path in the container, and not in the GAP system.
 
-If you need network access (for example, for packages downloading external data like AtlasRep), call `docker` with `--net="host"` option, for example:
+If you need network access (for example, for packages downloading external data like AtlasRep), call `docker` with `--net="host"` option, e.g.:
 
 ```
 docker run --rm -i -t --net="host" gapsystem/gap-docker
 ```
 
-At the moment, most of the packages are in the working order. The work in progress is to configure several remaining packages with non-standard installation and dependencies on external components.
- 
+For example, the following command mounts `pkg/scscp/example` directory from the GAP distribution as `/scscp` directory on the container and starts GAP SCSCP server using the configuration file `gap4r7p9/pkg/scscp/example/myserver.g`:
+
+```
+docker run --rm -i -t --net="host" -v ~/gap4r7p9/pkg/scscp/example:/scscp gapsystem/gap-docker gap /scscp/myserver.g
+```
+At the moment, almost all of the packages are in the working order. External software needed by some packages at the moment includes:
+* Ubuntu packages libmpfr-dev libmpfi-dev libmpc-dev libfplll-dev (needed by the float package)
+* Polymake 2.14 (and dependencies, listed on polymake.org)
+* Singular (git version of the day)
+* 4ti2 1.6.3
+* PARI/GP.
+
+The work in progress is to configure remaining packages with non-standard installation and dependencies on external components: Carat, ITC, Linboxing, ParGAP and XGAP.
+
