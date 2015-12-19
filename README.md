@@ -1,17 +1,14 @@
-# Docker container for GAP and packages.
+# Docker container for GAP and packages
 
 We have a prebuilt Docker image for GAP and packages at https://registry.hub.docker.com/u/gapsystem/gap-docker/.
 
-If you install Docker, you may start the container as follows:
-
+If you have Docker installed, you can start the GAP container by typing the following in a terminal:
 ```
-$ docker run --rm -i -t gapsystem/gap-docker
+docker run --rm -i -t gapsystem/gap-docker
 ```
-
 Note that you may have to run `docker` with `sudo`, particularly if you are on Ubuntu.
 
-After that, you may call `gap` to start a new GAP session:
-
+Once the GAP container is started, you can call `gap` inside it to start a new GAP session:
 ```
 gap@11d9377db2bd:~$ gap
  *********   GAP, Version 4.7.9 of 29-Nov-2015 (free software, GPL)
@@ -29,39 +26,35 @@ gap@11d9377db2bd:~$ gap
  Try '?help' for help. See also  '?copyright' and  '?authors'
 gap> 
 ```
-When you will leave GAP, you still will be logged in into container and will need to type `exit` to close it.
+When you leave GAP, you will still be logged in to the container and will need to type `exit` to close it.
 
-Alternatively, you may just type 
+Alternatively, you can just type
 ```
 docker run --rm -i -t gapsystem/gap-docker gap
 ```
-to start GAP immediately (and return to the host filesystem after the end of the GAP session). You may put this command in a shell script and make it a default or optional way to start GAP on your system. GAP command line options may be appended after `gap`, for example `docker run --rm -i -t gapsystem/gap-docker gap -A`. 
+to start GAP immediately (and return to the host filesystem after the end of the GAP session). You can put this command in a shell script and make it a default or optional way to start GAP on your system. GAP command line options can be appended after `gap`, for example `docker run --rm -i -t gapsystem/gap-docker gap -A`. 
 
-However, note that you will not be able to read a file our local directory into GAP just by supplying the filename in the command line. Instead of that, it is necessary to use `-v` option to mount local directory. For example, if the current directory contains the subdirectory `examples` with the file `examples/useful.g`, then with `-v $PWD/examples:/data` will mount `examples` as `/data` on the Docker container. Then to start GAP and read the file `examples/useful.g` into it, one should proceed as follows:
-
+However, note that you will not be able to read a file from your local directory into GAP just by supplying the filename in the command line. Instead, this requires using the option `-v` to mount a local directory. For example, if the current directory contains the subdirectory `examples` with the file `examples/useful.g`, then the option `-v $PWD/examples:/data` will mount `examples` as `/data` on the Docker container. That is, to start GAP and read the file `examples/useful.g` into it, type:
 ```
 docker run -v $PWD/examples:/data -t -i gapsystem/gap-docker gap /data/useful.g
 ```
-
 Note that the path to `useful.g` is the path in the container, and not in the GAP system.
 
-If you need network access (for example, for packages downloading external data like AtlasRep), call `docker` with `--net="host"` option, e.g.:
-
+If you need network access (for example, for packages downloading external data like AtlasRep), call `docker` with the option `--net="host"`, e.g.:
 ```
 docker run --rm -i -t --net="host" gapsystem/gap-docker
 ```
 
-For example, the following command mounts `pkg/scscp/example` directory from the GAP distribution as `/scscp` directory on the container and starts GAP SCSCP server using the configuration file `gap4r7p9/pkg/scscp/example/myserver.g`:
-
+Combining these options, the following command mounts the directory `pkg/scscp/example` from the GAP distribution as a directory `/scscp` on the container and starts the GAP SCSCP server using the configuration file `gap4r7p9/pkg/scscp/example/myserver.g`:
 ```
 docker run --rm -i -t --net="host" -v ~/gap4r7p9/pkg/scscp/example:/scscp gapsystem/gap-docker gap /scscp/myserver.g
 ```
-At the moment, almost all of the packages are in the working order. External software needed by some packages at the moment includes:
+
+At the moment, almost all packages are in working order. External software needed by some packages at the moment includes:
 * Ubuntu packages libmpfr-dev libmpfi-dev libmpc-dev libfplll-dev (needed by the float package)
 * Polymake 2.14 (and dependencies, listed on polymake.org)
 * Singular (git version of the day)
 * 4ti2 1.6.3
 * PARI/GP.
 
-The work in progress is to configure remaining packages with non-standard installation and dependencies on external components: Carat, ITC, Linboxing, ParGAP and XGAP.
-
+Work is in progress to configure the remaining packages that have non-standard installation procedures or dependencies on external components: Carat, ITC, Linboxing, ParGAP and XGAP.
