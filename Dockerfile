@@ -2,9 +2,6 @@ FROM gapsystem/gap-docker-base
 
 MAINTAINER The GAP Group <support@gap-system.org>
 
-# Install package dependencies
-RUN    sudo apt-get -qq install -y cmake #for NormalizInterface
-
 RUN    cd /home/gap/inst/gap4r8/pkg \
     && rm -rf \
     && wget -q http://www.gap-system.org/pub/gap/gap4pkgs/packages-v4.8.2.tar.gz \
