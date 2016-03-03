@@ -2,7 +2,13 @@
 
 We have a prebuilt Docker image for GAP and packages at https://registry.hub.docker.com/u/gapsystem/gap-docker/.
 
-If you have Docker installed, you can start the GAP container by typing the following in a terminal:
+If you have installed Docker, first you need to download the GAP container using
+```
+docker pull gapsystem/gap-docker
+```
+(the same command is needed if you need to pull the new GAP container to get a
+new GAP release). After that, you can start the GAP container by typing the
+following in a terminal:
 ```
 docker run --rm -i -t gapsystem/gap-docker
 ```
@@ -11,17 +17,17 @@ Note that you may have to run `docker` with `sudo`, particularly if you are on U
 Once the GAP container is started, you can call `gap` inside it to start a new GAP session:
 ```
 gap@11d9377db2bd:~$ gap
- *********   GAP, Version 4.7.9 of 29-Nov-2015 (free software, GPL)
+ *********   GAP 4.8.2, 20-Feb-2016, build of 2016-03-01 01:08:48 (UTC)
  *  GAP  *   http://www.gap-system.org
- *********   Architecture: x86_64-unknown-linux-gnu-gcc-default64
+ *********   Architecture: x86_64-pc-linux-gnu-gcc-default64
  Libs used:  gmp, readline
  Loading the library and packages ...
  Components: trans 1.0, prim 2.1, small* 1.0, id* 1.0
  Packages:   AClib 1.2, Alnuth 3.0.0, AtlasRep 1.5.0, AutPGrp 1.6, 
-             Browse 1.8.6, CRISP 1.3.9, Cryst 4.1.12, CrystCat 1.1.6, 
-             CTblLib 1.2.2, FactInt 1.5.3, FGA 1.3.0, GAPDoc 1.5.1, IO 4.4.4, 
-             IRREDSOL 1.2.4, LAGUNA 3.7.0, Polenta 1.3.2, Polycyclic 2.11, 
-             RadiRoot 2.7, ResClasses 3.4.0, Sophus 1.23, SpinSym 1.5, 
+             Browse 1.8.6, CRISP 1.4.1, Cryst 4.1.12, CrystCat 1.1.6, 
+             CTblLib 1.2.2, FactInt 1.5.3, FGA 1.3.0, GAPDoc 1.5.1, IO 4.4.5, 
+             IRREDSOL 1.2.4, LAGUNA 3.7.0, Polenta 1.3.5, Polycyclic 2.11, 
+             RadiRoot 2.7, ResClasses 4.1.2, Sophus 1.23, SpinSym 1.5, 
              TomLib 1.2.5
  Try '?help' for help. See also  '?copyright' and  '?authors'
 gap> 
@@ -45,9 +51,9 @@ If you need network access (for example, for packages downloading external data 
 docker run --rm -i -t --net="host" gapsystem/gap-docker
 ```
 
-Combining these options, the following command mounts the directory `pkg/scscp/example` from the GAP distribution as a directory `/scscp` on the container and starts the GAP SCSCP server using the configuration file `gap4r7p9/pkg/scscp/example/myserver.g`:
+Combining these options, the following command mounts the directory `pkg/scscp/example` from the GAP distribution as a directory `/scscp` on the container and starts the GAP SCSCP server using the configuration file `gap4rXpY/pkg/scscp/example/myserver.g`:
 ```
-docker run --rm -i -t --net="host" -v ~/gap4r7p9/pkg/scscp/example:/scscp gapsystem/gap-docker gap /scscp/myserver.g
+docker run --rm -i -t --net="host" -v ~/gap4rXpY/pkg/scscp/example:/scscp gapsystem/gap-docker gap /scscp/myserver.g
 ```
 
 At the moment, almost all packages are in working order. External software needed by some packages at the moment includes:
