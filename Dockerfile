@@ -4,12 +4,10 @@ MAINTAINER The GAP Group <support@gap-system.org>
 
 RUN    cd /home/gap/inst/gap4r8/pkg \
     && rm -rf \
-    && wget -q http://www.gap-system.org/pub/gap/gap4pkgs/packages-v4.8.2.tar.gz \
-    && tar xzf packages-v4.8.2.tar.gz \
-    && rm packages-v4.8.2.tar.gz \
-    && wget https://raw.githubusercontent.com/gap-system/gap-docker/master/InstPackages.sh \
-    && chmod u+x InstPackages.sh \
-    && ./InstPackages.sh
+    && wget -q http://www.gap-system.org/pub/gap/gap4pkgs/packages-v4.8.5.tar.gz \
+    && tar xzf packages-v4.8.5.tar.gz \
+    && rm packages-v4.8.5.tar.gz \
+    && ../bin/BuildPackages.sh
 
 # Set up new user and home directory in environment.
 # Note that WORKDIR will not expand environment variables in docker versions < 1.3.1.
