@@ -59,7 +59,7 @@ docker run --rm -i -t --net="host" -v ~/gap4rXpY/pkg/scscp/example:/scscp gapsys
 At the moment, almost all packages are in working order. External software needed by some packages at the moment includes:
 * Ubuntu packages libmpfr-dev libmpfi-dev libmpc-dev libfplll-dev (needed by the float package)
 * Polymake 2.14 (and dependencies, listed on polymake.org)
-* Singular (git version of the day)
+* Singular 4.1.0
 * 4ti2 1.6.3
 * PARI/GP.
 
