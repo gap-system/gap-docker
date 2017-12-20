@@ -4,9 +4,9 @@ MAINTAINER The GAP Group <support@gap-system.org>
 
 RUN    cd /home/gap/inst/gap4r8/pkg \
     && rm -rf \
-    && wget -q http://www.gap-system.org/pub/gap/gap4pkgs/packages-v4.8.8.tar.gz \
-    && tar xzf packages-v4.8.8.tar.gz \
-    && rm packages-v4.8.8.tar.gz \
+    && wget -q http://www.gap-system.org/pub/gap/gap4pkgs/packages-v4.8.9.tar.gz \
+    && tar xzf packages-v4.8.9.tar.gz \
+    && rm packages-v4.8.9.tar.gz \
     && cd .. \
     && chmod -R a+r pkg \
     && find pkg -exec touch -r "INSTALL.md" {} \; \
