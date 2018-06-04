@@ -2,6 +2,14 @@ FROM gapsystem/gap-docker-base
 
 MAINTAINER The GAP Group <support@gap-system.org>
 
+# Prerequirements
+RUN    sudo apt-get update -qq \
+    && sudo apt-get -qq install -y \
+                                   # for ANUPQ package to build in 32-bit mode
+                                   gcc-multilib \
+                                   # for ZeroMQ package
+                                   libzmq3-dev
+
 RUN    cd /home/gap/inst/gap-4.9.1/pkg \
     && rm -rf \
     && wget -q http://www.gap-system.org/pub/gap/gap4pkgs/packages-v4.9.1.tar.gz \
