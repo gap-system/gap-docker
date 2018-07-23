@@ -10,7 +10,7 @@ RUN    sudo apt-get update -qq \
                                    # for ZeroMQ package
                                    libzmq3-dev
 
-RUN    cd /home/gap/inst/gap-4.9.1/pkg \
+RUN    cd /home/gap/inst/gap-4.9.2/pkg \
     && rm -rf \
     && wget -q http://www.gap-system.org/pub/gap/gap4pkgs/packages-v4.9.2.tar.gz \
     && tar xzf packages-v4.9.2.tar.gz \
@@ -26,7 +26,7 @@ RUN    cd /home/gap/inst/gap-4.9.1/pkg \
 # See docker issue 2637: https://github.com/docker/docker/issues/2637
 USER gap
 ENV HOME /home/gap
-ENV GAP_HOME /home/gap/inst/gap-4.9.1
+ENV GAP_HOME /home/gap/inst/gap-4.9.2
 ENV PATH ${GAP_HOME}/bin:${PATH}
 
 # Start at $HOME.
