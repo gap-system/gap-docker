@@ -12,9 +12,9 @@ RUN    sudo apt-get update -qq \
 
 RUN    cd /home/gap/inst/gap-4.9.1/pkg \
     && rm -rf \
-    && wget -q http://www.gap-system.org/pub/gap/gap4pkgs/packages-v4.9.1.tar.gz \
-    && tar xzf packages-v4.9.1.tar.gz \
-    && rm packages-v4.9.1.tar.gz \
+    && wget -q http://www.gap-system.org/pub/gap/gap4pkgs/packages-v4.9.2.tar.gz \
+    && tar xzf packages-v4.9.2.tar.gz \
+    && rm packages-v4.9.2.tar.gz \
     && cd .. \
     && chmod -R a+r pkg \
     && find pkg -exec touch -r "INSTALL.md" {} \; \
