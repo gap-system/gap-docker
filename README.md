@@ -77,6 +77,14 @@ file `gap-4.X.Y/pkg/scscp/example/myserver.g`:
 
     docker run --rm -i -t --net="host" -v ~/gap-4.X.Y/pkg/scscp/example:/scscp gapsystem/gap-docker gap /scscp/myserver.g
 
+It is also possible to access GAP running in this Docker container from a
+Jupyter notebook in your browser. Use the following command to start a Docker
+container with a running notebook server:
+
+    docker run -p 8888:8888 -i -t gapsystem/gap-docker jupyter notebook --no-browser --ip=0.0.0.0
+
+and then copy and paste the displayed URL into your browser to connect to it.
+
 At the moment, almost all packages are in working order. The only packages
 which are not usable in this container are:
 * PolymakeInterface
