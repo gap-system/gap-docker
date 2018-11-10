@@ -9,6 +9,8 @@ RUN    sudo apt-get update -qq \
                                    gcc-multilib \
                                    # for ZeroMQ package
                                    libzmq3-dev \
+                                   # for curlInterface
+                                   libcurl4-openssl-dev \
                                    # for Jupyter
                                    python3-pip
 
@@ -22,6 +24,7 @@ RUN    cd /home/gap/inst/ \
     && cd gap-4.10.0 \
     && ./configure \
     && make \
+    && cp bin/gap.sh bin/gap \
     && cd pkg \
     && ../bin/BuildPackages.sh \
     && cd JupyterKernel-* \
