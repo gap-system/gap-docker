@@ -24,18 +24,17 @@ new GAP session:
 
 ```
 gap@11d9377db2bd:~$ gap
- *********   GAP 4.9.1 of 05-May-2018
+ *********   GAP 4.10.0 of 01-Nov-2018
  *  GAP  *   https://www.gap-system.org
  *********   Architecture: x86_64-pc-linux-gnu-default64
  Configuration:  gmp 6.1.2, readline
  Loading the library and packages ...
- Packages:   AClib 1.3, Alnuth 3.1.0, AtlasRep 1.5.1, AutPGrp 1.9, 
-             Browse 1.8.7, Carat 2.2.2, CRISP 1.4.4, Cryst 4.1.17, 
-             CrystCat 1.1.8, CTblLib 1.2.2, FactInt 1.6.2, FGA 1.4.0, 
-             GAPDoc 1.6.1, IO 4.5.1, IRREDSOL 1.4, LAGUNA 3.9.0, 
-             Polenta 1.3.8, Polycyclic 2.13.1, PrimGrp 3.3.1, RadiRoot 2.8, 
-             ResClasses 4.7.1, SmallGrp 1.3, Sophus 1.24, SpinSym 1.5, 
-             TomLib 1.2.6, TransGrp 2.0.2, utils 0.54
+ Packages:   AClib 1.3.1, Alnuth 3.1.0, AtlasRep 1.5.1, AutoDoc 2018.09.20, 
+             AutPGrp 1.10, Browse 1.8.8, Carat 2.2.2, CRISP 1.4.4, Cryst 4.1.18, 
+             CrystCat 1.1.8, CTblLib 1.2.2, FactInt 1.6.2, FGA 1.4.0, GAPDoc 1.6.2, 
+             IO 4.5.4, IRREDSOL 1.4, LAGUNA 3.9.0, Polenta 1.3.8, Polycyclic 2.14, 
+             PrimGrp 3.3.2, RadiRoot 2.8, ResClasses 4.7.1, SmallGrp 1.3, 
+             Sophus 1.24, SpinSym 1.5, TomLib 1.2.7, TransGrp 2.0.4, utils 0.59
  Try '??help' for help. See also '?copyright', '?cite' and '?authors'
 gap> 
 ```
@@ -82,7 +81,6 @@ At the moment, almost all packages are in working order. The only packages
 which are not usable in this container are:
 * PolymakeInterface
 * ITC
-* linboxing
 * XGAP
 
 External software needed by some packages at the moment includes some Ubuntu
