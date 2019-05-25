@@ -18,7 +18,7 @@ RUN sudo pip3 install notebook jupyterlab_launcher jupyterlab traitlets ipython 
 
 RUN    cd /home/gap/inst/ \
     && rm -rf gap-*\
-    && wget -q https://www.gap-system.org/pub/gap/gap-4.10.1/tar.gz/gap-4.10.1.tar.gz \
+    && wget -q https://www.gap-system.org/pub/gap/gap-4.10/tar.gz/gap-4.10.1.tar.gz \
     && tar xzf gap-4.10.1.tar.gz \
     && rm gap-4.10.1.tar.gz \
     && cd gap-4.10.1 \
