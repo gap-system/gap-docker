@@ -2,6 +2,9 @@ FROM gapsystem/gap-docker-base
 
 MAINTAINER The GAP Group <support@gap-system.org>
 
+ENV GAP_VERSION_MAJOR 4.10
+ENV GAP_VERSION 4.10.1
+
 # Prerequirements
 RUN    sudo apt-get update -qq \
     && sudo apt-get -qq install -y \
@@ -18,10 +21,10 @@ RUN sudo pip3 install notebook jupyterlab_launcher jupyterlab traitlets ipython 
 
 RUN    cd /home/gap/inst/ \
     && rm -rf gap-*\
-    && wget -q https://www.gap-system.org/pub/gap/gap-4.10/tar.gz/gap-4.10.1.tar.gz \
-    && tar xzf gap-4.10.1.tar.gz \
-    && rm gap-4.10.1.tar.gz \
-    && cd gap-4.10.1 \
+    && wget -q https://www.gap-system.org/pub/gap/gap-${GAP_VERSION_MAJOR}/tar.gz/gap-${GAP_VERSION}.tar.gz \
+    && tar xzf gap-${GAP_VERSION}.tar.gz \
+    && rm gap-${GAP_VERSION}.tar.gz \
+    && cd gap-${GAP_VERSION} \
     && ./configure \
     && make \
     && cp bin/gap.sh bin/gap \
@@ -32,15 +35,15 @@ RUN    cd /home/gap/inst/ \
 
 RUN jupyter serverextension enable --py jupyterlab --user
 
-ENV PATH /home/gap/inst/gap-4.10.1/pkg/JupyterKernel-1.3/bin:${PATH}
-ENV JUPYTER_GAP_EXECUTABLE /home/gap/inst/gap-4.10.1/bin/gap.sh
+ENV PATH /home/gap/inst/gap-${GAP_VERSION}/pkg/JupyterKernel-1.3/bin:${PATH}
+ENV JUPYTER_GAP_EXECUTABLE /home/gap/inst/gap-${GAP_VERSION}/bin/gap.sh
 
 # Set up new user and home directory in environment.
 # Note that WORKDIR will not expand environment variables in docker versions < 1.3.1.
 # See docker issue 2637: https://github.com/docker/docker/issues/2637
 USER gap
 ENV HOME /home/gap
-ENV GAP_HOME /home/gap/inst/gap-4.10.1
+ENV GAP_HOME /home/gap/inst/gap-${GAP_VERSION}
 ENV PATH ${GAP_HOME}/bin:${PATH}
 
 # Start at $HOME.
