@@ -25,16 +25,5 @@ RUN jupyter serverextension enable --py jupyterlab --user
 ENV PATH /home/gap/inst/gap-${GAP_VERSION}/pkg/JupyterKernel-${JUPYTER_KERNEL_VERSION}/bin:${PATH}
 ENV JUPYTER_GAP_EXECUTABLE /home/gap/inst/gap-${GAP_VERSION}/bin/gap.sh
 
-# Set up new user and home directory in environment.
-# Note that WORKDIR will not expand environment variables in docker versions < 1.3.1.
-# See docker issue 2637: https://github.com/docker/docker/issues/2637
-USER gap
-ENV HOME /home/gap
 ENV GAP_HOME /home/gap/inst/gap-${GAP_VERSION}
 ENV PATH ${GAP_HOME}/bin:${PATH}
-
-# Start at $HOME.
-WORKDIR /home/gap
-
-# Start from a BASH shell.
-CMD ["bash"]
