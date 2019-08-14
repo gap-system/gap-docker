@@ -19,7 +19,8 @@ RUN    sudo apt-get update -qq \
 
 RUN sudo pip3 install notebook jupyterlab_launcher jupyterlab traitlets ipython vdom
 
-RUN    cd /home/gap/inst/ \
+RUN    mkdir /home/gap/inst/ \
+    && cd /home/gap/inst/ \
     && wget -q https://www.gap-system.org/pub/gap/gap-4.10/tar.gz/gap-${GAP_VERSION}.tar.gz \
     && tar xzf gap-${GAP_VERSION}.tar.gz \
     && rm gap-${GAP_VERSION}.tar.gz \
