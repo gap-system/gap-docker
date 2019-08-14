@@ -5,19 +5,6 @@ MAINTAINER The GAP Group <support@gap-system.org>
 ENV GAP_VERSION 4.10.2
 ENV JUPYTER_KERNEL_VERSION 1.3
 
-# Dependencies (missing in gapsystem/gap-docker-base)
-RUN    sudo apt-get update -qq \
-    && sudo apt-get -qq install -y \
-                                   # for ANUPQ package to build in 32-bit mode
-                                   gcc-multilib \
-                                   # for ZeroMQ package
-                                   libzmq3-dev \
-                                   # for curlInterface
-                                   libcurl4-openssl-dev \
-                                   # for Jupyter
-                                   python3-pip
-
-RUN sudo pip3 install notebook jupyterlab_launcher jupyterlab traitlets ipython vdom
 
 RUN    mkdir /home/gap/inst/ \
     && cd /home/gap/inst/ \
