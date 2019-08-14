@@ -3,8 +3,6 @@ FROM gapsystem/gap-docker-base
 MAINTAINER The GAP Group <support@gap-system.org>
 
 ENV GAP_VERSION 4.10.2
-ENV JUPYTER_KERNEL_VERSION 1.3
-
 
 RUN    mkdir /home/gap/inst/ \
     && cd /home/gap/inst/ \
@@ -17,12 +15,14 @@ RUN    mkdir /home/gap/inst/ \
     && cp bin/gap.sh bin/gap \
     && cd pkg \
     && ../bin/BuildPackages.sh \
-    && cd JupyterKernel-* \
+    && test='JupyterKernel-*' \
+    && mv ${test} JupyterKernel \
+    && cd JupyterKernel \
     && python3 setup.py install --user
 
 RUN jupyter serverextension enable --py jupyterlab --user
 
-ENV PATH /home/gap/inst/gap-${GAP_VERSION}/pkg/JupyterKernel-${JUPYTER_KERNEL_VERSION}/bin:${PATH}
+ENV PATH /home/gap/inst/gap-${GAP_VERSION}/pkg/JupyterKernel/bin:${PATH}
 ENV JUPYTER_GAP_EXECUTABLE /home/gap/inst/gap-${GAP_VERSION}/bin/gap.sh
 
 ENV GAP_HOME /home/gap/inst/gap-${GAP_VERSION}
