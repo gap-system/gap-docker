@@ -7,7 +7,8 @@ release, aiming at having as much GAP packages as possible in the working
 order. It is usually updated shortly after the release announcement (so
 slight delays are possible).
 
-If you have installed Docker, first you need to download the container using
+If you have installed [Docker](https://www.docker.com/), to use this
+container first you need to download it using
 
     docker pull gapsystem/gap-docker
 
@@ -94,6 +95,4 @@ which are not usable in this container are:
 External software needed by some packages at the moment includes some Ubuntu
 packages and libraries, and also 4ti2, polymake, Singular and PARI/GP. You can
 check their exact list in the `Dockerfile` for the "base" container which is
-build from `gap-system/gap-container` (which only provides the core GAP system)
-by adding additional dependencies, used by some packages in GAP. This "base"
-container is maintained at https://github.com/gap-system/gap-docker-base.
+maintained at https://github.com/gap-system/gap-docker-base.
