@@ -2,12 +2,13 @@
 
 DockerHub entry: https://registry.hub.docker.com/u/gapsystem/gap-docker/
 
-We maintain a Docker container for the full installation of the latest GAP 
-release, aiming at having as much GAP packages as possible in the working 
+We maintain a Docker container for the full installation of the latest GAP
+release, aiming at having as much GAP packages as possible in the working
 order. It is usually updated shortly after the release announcement (so
 slight delays are possible).
 
-If you have installed Docker, first you need to download the container using
+If you have installed [Docker](https://www.docker.com/), to use this
+container first you need to download it using
 
     docker pull gapsystem/gap-docker
 
@@ -16,10 +17,10 @@ new GAP release). After that, you can start it as follows:
 
     docker run --rm -i -t gapsystem/gap-docker
 
-Note that you may have to run `docker` with `sudo`, particularly if you are 
+Note that you may have to run `docker` with `sudo`, particularly if you are
 on Ubuntu.
 
-Once the GAP container is started, you can call `gap` inside it to start a 
+Once the GAP container is started, you can call `gap` inside it to start a
 new GAP session:
 
 ```
@@ -39,7 +40,7 @@ gap@11d9377db2bd:~$ gap
 gap> 
 ```
 
-When you leave GAP, you will still be logged in to the container and will 
+When you leave GAP, you will still be logged in to the container and will
 need to type `exit` to close it.
 
 Alternatively, you can just type
@@ -49,12 +50,12 @@ Alternatively, you can just type
 to start GAP immediately (and return to the host filesystem after the end of
 the GAP session). You can put this command in a shell script and make it a
 default or optional way to start GAP on your system. GAP command line options
-can be appended after `gap`, for example 
+can be appended after `gap`, for example
 
     docker run --rm -i -t gapsystem/gap-docker gap -A
 
 However, note that you will not be able to read a file from your local
-directory into GAP just by supplying the filename in the command line. 
+directory into GAP just by supplying the filename in the command line.
 Instead, this requires using the option `-v` to mount a local directory.
 For example, if the current directory contains the subdirectory `examples`
 with the file `examples/useful.g`, then the option `-v $PWD/examples:/data`
@@ -94,6 +95,4 @@ which are not usable in this container are:
 External software needed by some packages at the moment includes some Ubuntu
 packages and libraries, and also 4ti2, polymake, Singular and PARI/GP. You can
 check their exact list in the `Dockerfile` for the "base" container which is
-build from `gap-system/gap-container` (which only provides the core GAP system)
-by adding additional dependencies, used by some packages in GAP. This "base"
-container is maintained at https://github.com/gap-system/gap-docker-base.
+maintained at https://github.com/gap-system/gap-docker-base.
