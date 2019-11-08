@@ -3,8 +3,8 @@
 DockerHub entry: https://registry.hub.docker.com/u/gapsystem/gap-docker/
 
 We maintain a Docker container for the full installation of the latest GAP
-release, aiming at having as much GAP packages as possible in the working
-order. It is usually updated shortly after the release announcement (so
+release, aimed at having as many GAP packages as possible working. 
+It is usually updated shortly after the release announcement (so
 slight delays are possible).
 
 If you have installed [Docker](https://www.docker.com/), to use this
