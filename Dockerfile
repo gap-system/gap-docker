@@ -2,11 +2,11 @@ FROM gapsystem/gap-docker-base
 
 MAINTAINER The GAP Group <support@gap-system.org>
 
-ENV GAP_VERSION 4.10.2
+ENV GAP_VERSION 4.11.0
 
 RUN    mkdir /home/gap/inst/ \
     && cd /home/gap/inst/ \
-    && wget -q https://www.gap-system.org/pub/gap/gap-4.10/tar.gz/gap-${GAP_VERSION}.tar.gz \
+    && wget -q https://www.gap-system.org/pub/gap/gap-4.11/tar.gz/gap-${GAP_VERSION}.tar.gz \
     && tar xzf gap-${GAP_VERSION}.tar.gz \
     && rm gap-${GAP_VERSION}.tar.gz \
     && cd gap-${GAP_VERSION} \
