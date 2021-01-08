@@ -1,11 +1,14 @@
 # Docker container for the full installation of the latest GAP release
 
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/gap-system/gap-docker/master)
+
 DockerHub entry: https://registry.hub.docker.com/u/gapsystem/gap-docker/
 
 We maintain a Docker container for the full installation of the latest GAP
 release, aimed at having as many GAP packages as possible working. 
 It is usually updated shortly after the release announcement (so
 slight delays are possible).
+You can try it on mybinder.org via the "launch binder" badge above.
 
 If you have installed [Docker](https://www.docker.com/), to use this
 container first you need to download it using
