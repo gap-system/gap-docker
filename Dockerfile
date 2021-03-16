@@ -6,7 +6,7 @@ ENV GAP_VERSION 4.11.1
 
 RUN    mkdir /home/gap/inst/ \
     && cd /home/gap/inst/ \
-    && wget -q https://github.com/gap-system/gap/releases/download/v${GAP_VERSION}/gap-${GAP_VERSION}.tar.gz
+    && wget -q https://github.com/gap-system/gap/releases/download/v${GAP_VERSION}/gap-${GAP_VERSION}.tar.gz \
     && tar xzf gap-${GAP_VERSION}.tar.gz \
     && rm gap-${GAP_VERSION}.tar.gz \
     && cd gap-${GAP_VERSION} \
