@@ -2,7 +2,7 @@ FROM gapsystem/gap-docker-base
 
 MAINTAINER The GAP Group <support@gap-system.org>
 
-ENV GAP_VERSION 4.11.0
+ENV GAP_VERSION 4.11.1
 
 RUN    mkdir /home/gap/inst/ \
     && cd /home/gap/inst/ \
